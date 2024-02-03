@@ -1,0 +1,41 @@
+
+body {
+    background-image: url('./assets/outrun-neon-dark-background-purple-3440x1440-4523.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    
+
+}
+
+.form-control:focus{
+    border-color: #fff;
+    box-shadow: none;
+}
+
+.primary-bg-color{
+    background-color: #18042591;
+}
+
+.btn.primary-btn {
+    background-color: #520ab1;
+    border: 2px solid #520ab1;
+    color: #fff;
+  }
+
+.btn.primary-btn:disabled {
+    background-color: #6a05ef;
+    border-color: #6a05ef;
+    color: #fff;
+}
+
+.btn.primary-btn:hover {
+    background-color: #520ab13f;
+    
+    border-color: #520ab1;
+    color: #fff;
+    font-weight: bold;
+}
+
+  
