@@ -1,0 +1,46 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+
+.spinner-grow {
+    box-shadow: #ee09fa 0px 0px 20px 0px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .spinner-grow {
+        height: 2.8em;
+        width: 2.8em;
+    }
+    
+}
+
+.spinner-grow:nth-child(1) {
+    animation-delay: 0.70s;
+    color: #990ad6; 
+  }
+  
+  .spinner-grow:nth-child(2) {
+    animation-delay: 0.75s;
+    color: #af04ff; 
+  }
+ 
+  .spinner-grow:nth-child(3) {
+    animation-delay: 0.80s; 
+    color: #99309d; 
+  }
+  
+  .spinner-grow:nth-child(4) {
+    animation-delay: 0.85s; 
+    color: #ab33b6;
+  }
+  
+  .spinner-grow:nth-child(5) {
+    animation-delay: 0.90s;
+    color: #b94dbd;
+  }
