@@ -58,3 +58,20 @@ test('verifica se ao clicar no botão o nome da  pessoa usuária é salvo pôr m
     expect(window.location.pathname).toBe('/search');
   });
 });
+
+test('verifica se ao digitar no input e clicar no enter o nome da  pessoa usuária é salvo pôr meio da função createUser e em seguida é redirecionada para a página de busca', async () => {
+  const mockCreateUser = vi.fn().mockResolvedValue('OK');
+
+  vi.spyOn(userAPI, 'createUser').mockImplementation(mockCreateUser);
+
+  const { user } = renderWithRouter(<Login />);
+  const loginInput = screen.getByTestId(LOGIN_INPUT_ID);
+
+  await user.type(loginInput, 'username');
+  await user.type(loginInput, '{enter}');
+
+  await waitFor(() => {
+    expect(mockCreateUser).toHaveBeenCalledWith({ name: 'username' });
+    expect(window.location.pathname).toBe('/search');
+  });
+});
