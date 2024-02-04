@@ -4,7 +4,8 @@ type InputProps = {
   label?: string;
   placeholder?: string;
   containerClass?: string;
-  onChange:(id: string, value: string) => void;
+  onChange:(e: React.ChangeEvent<HTMLInputElement>) => void;
+  enterClick: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 };
 
 function Input({
@@ -14,10 +15,8 @@ function Input({
   placeholder = '',
   containerClass = '',
   onChange,
+  enterClick,
 }: InputProps) {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(id, e.target.value);
-  };
   return (
     <div id={ `container-${id}` } className={ containerClass }>
       {label !== '' ? (
@@ -30,8 +29,9 @@ function Input({
         data-testid={ testId }
         className="form-control"
         type="text"
-        onChange={ handleChange }
+        onChange={ (e) => onChange(e) }
         placeholder={ placeholder }
+        onKeyDown={ (e) => e.key === 'Enter' && enterClick(e) }
       />
     </div>
   );

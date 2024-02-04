@@ -16,7 +16,9 @@ function Login() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (value: string) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+
     if (value.length < 3) {
       setButtonDisabled(true);
       return;
@@ -26,11 +28,23 @@ function Login() {
   };
 
   const handleClick = async () => {
-    setIsLoading(true);
-    await createUser({ name: userName });
-    setIsLoading(false);
-    navigate('/search');
+    if (userName.length >= 3) {
+      setIsLoading(true);
+      await createUser({ name: userName });
+      setIsLoading(false);
+      navigate('/search');
+    } else {
+      return null;
+    }
   };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    if (e.key === 'Enter' && userName.length >= 3) {
+      handleClick();
+    }
+  };
+
   if (!isLoading) {
     return (
       <section id="main-login" className="container primary-bg-color">
@@ -47,8 +61,10 @@ function Login() {
                 testId="login-name-input"
                 id="username"
                 onChange={ handleChange }
+                enterClick={ handleKeyDown }
                 containerClass="col mb-2 d-flex justify-content-center"
                 placeholder="Digite seu nome"
+
               />
               <Button
                 testId="login-submit-button"
