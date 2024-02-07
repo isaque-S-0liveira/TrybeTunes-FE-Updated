@@ -19,12 +19,12 @@ function Login() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
 
+    setUsername(value);
     if (value.length < 3) {
       setButtonDisabled(true);
       return;
     }
     setButtonDisabled(false);
-    setUsername(value);
   };
 
   const handleClick = async () => {
@@ -60,6 +60,7 @@ function Login() {
               <Input
                 testId="login-name-input"
                 id="username"
+                value={ userName }
                 onChange={ handleChange }
                 enterClick={ handleKeyDown }
                 containerClass="col mb-2 d-flex justify-content-center"
@@ -83,7 +84,7 @@ function Login() {
     );
   }
 
-  return <div style={ { height: '100vh' } }><Loading /></div>;
+  return <Loading />;
 }
 
 export default Login;
