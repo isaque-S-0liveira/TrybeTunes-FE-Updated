@@ -7,6 +7,7 @@ function App() {
     <Routes>
       <Route path="/" element={ <Login /> } />
       <Route path="/search" element={ <Search /> } />
+      <Route path="/album/:id" element={ <h1>Album</h1> } />
       <Route path="/*" element={ <h1>Not Found</h1> } />
     </Routes>
   );

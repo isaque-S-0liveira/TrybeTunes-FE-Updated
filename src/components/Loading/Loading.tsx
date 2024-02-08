@@ -1,8 +1,13 @@
 import './Loading.css';
 
-function Loading() {
+type LoadingProps = {
+  height?: string;
+};
+
+function Loading({ height = '100vh' }: LoadingProps) {
   return (
     <div
+      style={ { height } }
       data-testid="loading-container-id"
       className="loading-container primary-bg-color"
     >
