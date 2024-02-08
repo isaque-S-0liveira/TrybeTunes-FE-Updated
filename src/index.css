@@ -9,6 +9,14 @@ body {
 
 }
 
+/* Estilos quando o campo é autocompletado */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    border: 1px solid white;
+    -webkit-text-fill-color: rgb(255, 255, 255) !important;
+    -webkit-box-shadow: 0 0 0px 1000px #000000 inset;
+}
 .form-control:focus{
     border-color: #fff;
     box-shadow: none;
