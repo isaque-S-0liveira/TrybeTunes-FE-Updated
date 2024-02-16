@@ -17,6 +17,23 @@ input:-webkit-autofill:focus {
     -webkit-text-fill-color: rgb(255, 255, 255) !important;
     -webkit-box-shadow: 0 0 0px 1000px #000000 inset;
 }
+
+
+.default-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.default-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #9191916f;
+
+}
+
+.default-scrollbar::-webkit-scrollbar-track {
+    /* fundo da barra de rolagem */
+    background-color:transparent;
+}
+
 .form-control:focus{
     border-color: #fff;
     box-shadow: none;
