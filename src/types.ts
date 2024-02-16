@@ -15,3 +15,9 @@ export type UserType = {
   image: string;
   description: string;
 };
+
+export type SongType = {
+  trackId: number,
+  trackName: string,
+  previewUrl: string,
+};

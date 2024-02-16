@@ -18,8 +18,8 @@ function AlbumCard({ album }: AlbumProps) {
         alt={ collectionName }
         containerClass="img-container"
       />
-      <p id="albumName">{collectionName}</p>
-      <p id="artistName">{artistName}</p>
+      <p data-testid="album-name" id="albumName">{collectionName}</p>
+      <p data-testid="artist-name" id="artistName">{artistName}</p>
     </div>
   );
 }
