@@ -25,13 +25,20 @@ function Search() {
   };
 
   const handleSearchButton = async () => {
-    setIsLoading(true);
-    setAlbums(await searchAlbumsAPI(search));
-    setSearch('');
-    setDisabled(true);
-    setTimeout(() => {
+    try {
+      setIsLoading(true);
+      setAlbums(await searchAlbumsAPI(search));
+      setSearch('');
+      setDisabled(true);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+    } catch (error) {
+      setHeaderText('erro ao buscar os álbuns');
+      setSearch('');
+      setDisabled(true);
       setIsLoading(false);
-    }, 2000);
+    }
   };
 
   const hasAlbums = () => {
