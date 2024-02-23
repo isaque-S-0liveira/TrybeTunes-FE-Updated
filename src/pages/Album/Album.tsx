@@ -12,20 +12,24 @@ function Album() {
   const [musics, setMusics] = useState<SongType[]>([]);
   const [collection, setCollection] = useState<AlbumType>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [requestError, setRequestError] = useState<string>('');
   useEffect(() => {
     const fetchMusics = async () => {
-      const allMusics = await getMusics(params.id as string);
-      const album = allMusics.shift();
-      setCollection(album as AlbumType);
-      setMusics(allMusics as SongType[]);
+      try {
+        const albumAndSongs = await getMusics(params.id as string);
+        const album = albumAndSongs[0];
+        const remainingMusics = albumAndSongs.slice(1);
+        setCollection(album as AlbumType);
+        setMusics(remainingMusics as SongType[]);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 2000);
+      } catch (error) {
+        setRequestError('Erro ao buscar as músicas');
+        setIsLoading(false);
+      }
     };
     fetchMusics();
-    setTimeout(
-      () => {
-        setIsLoading(false);
-      },
-      2000,
-    );
   }, []);
 
   if (!isLoading) {
@@ -33,6 +37,7 @@ function Album() {
       <article id="album-main-container" className="container primary-bg-color">
         <div className="row">
           <div id="songs-header" className="col-12 col-lg-5">
+            {requestError && <p>{requestError}</p>}
             <AlbumCard album={ collection as AlbumType } />
           </div>
           <div id="all-songs-container" className="col-12 col-lg-7 p-0">
