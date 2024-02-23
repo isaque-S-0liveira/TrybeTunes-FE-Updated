@@ -1,6 +1,6 @@
 import { screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
-import { renderWithRouter } from '../utils/renderWithRouter';
+import { renderWithRouter } from './utils/renderWithRouter';
 import Login from '../pages/Login/Login';
 import * as userAPI from '../services/userAPI';
 

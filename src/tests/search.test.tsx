@@ -2,7 +2,7 @@
 import { screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import { act } from 'react-dom/test-utils';
-import { renderWithRouter } from '../utils/renderWithRouter';
+import { renderWithRouter } from './utils/renderWithRouter';
 import Search from '../pages/Search/Search';
 import * as albumsAPI from '../services/searchAlbumsAPI';
 import { validAlbums } from './mocks/albums.mock';
