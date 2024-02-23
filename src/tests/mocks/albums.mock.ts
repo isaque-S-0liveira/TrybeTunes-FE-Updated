@@ -36,3 +36,17 @@ export const validAlbums = [
   },
 
 ] as AlbumType[];
+
+export const validAlbum = [
+  validAlbums[0],
+  {
+    trackId: 12,
+    trackName: 'Track Name 1',
+    previewUrl: 'preview-url-1',
+  },
+  {
+    trackId: 13,
+    trackName: 'Track Name 2',
+    previewUrl: 'preview-url-2',
+  },
+];
