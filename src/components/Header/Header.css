@@ -1,0 +1,86 @@
+#header-component #header-container {
+    background-color: rgba(46, 2, 68, 0.633);
+    padding: 12px;
+    padding-bottom: 20px;
+}
+
+#header-component #user-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    min-width: 100px;
+    max-width: 150px;
+    background-color: rgb(7, 1, 35);
+}
+
+@media screen and (min-width: 576px){
+    #header-component #user-container {
+        max-width: 180px;
+        min-width: 150px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #header-component #user-container {
+        max-width: 270px;
+    }
+}
+
+#header-component #user-icon, #user-name, #loading-name {
+    color: #ffff;
+}
+
+#header-component #user-icon {
+    font-size: 1.5em;
+    color: rgb(131, 6, 255);
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+#header-component #user-name {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-right: 10px;
+    max-width: 70px;
+}
+
+@media screen and (min-width: 576px){
+    #header-component #user-name{
+        max-width: 180px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #header-component #user-name {
+        max-width: 250px;
+    }
+}
+
+#header-component #header-logo {
+    width: 100px;
+}
+
+#header-component .nav-link-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: rgb(119, 0, 255);
+}
+
+#header-component .nav-link-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    color: #ffffff;
+    background-color: rgba(119, 0, 255, 0.246);
+    transition: .5s;
+}

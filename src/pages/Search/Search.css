@@ -65,7 +65,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 90px;
+    min-height: 50px;
 }
 
 #all-albums-container a {
@@ -74,9 +74,9 @@
 
 #all-albums-container {
     overflow-y: auto;
-    max-height: 600px;
-    min-height: 400px;
-    margin-bottom: 120px;
+    max-height: 400px;
+    min-height: 300px;
+    margin-bottom: 20px;
     margin-top: 20px;
     border-top: 1px solid #ffffff56;
     padding-top: 20px;
@@ -85,8 +85,9 @@
 
 @media screen and (min-width: 768px) {
     #all-albums-container {
-        max-height: 700px;
-        margin-bottom: 100px;
+        min-height: 500px;
+        max-height: 500px;
+        margin-bottom: 50px;
     }
 
     #all-albums-container::-webkit-scrollbar {

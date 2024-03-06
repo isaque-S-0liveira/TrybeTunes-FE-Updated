@@ -68,7 +68,7 @@ function Search() {
 
   if (!isLoading) {
     return (
-      <section style={ { padding: '0' } } className="container">
+      <section className=" mt-4 p-0 container-lg">
 
         <form id="search-form">
 
@@ -97,12 +97,11 @@ function Search() {
 
         </form>
 
-        <div id="section-albums" className="primary-bg-color mt-5 container ">
+        <div id="section-albums" className="primary-bg-color mt-3 mt-md-4  container-lg ">
           <div id="section-albums-header" className="col-12">
             <h3
               className="text-center text-light"
             >
-
               {headerText}
             </h3>
 
@@ -114,7 +113,7 @@ function Search() {
                 to={ `/album/${album.collectionId}` }
                 data-testid={ `link-to-album-${album.collectionId}` }
                 key={ album.collectionId }
-                className="mb-5 col-12 col-md-6 col-lg-4 col-xl-3"
+                className="mb-5 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3"
               >
                 <AlbumCard
                   album={ album }
@@ -128,9 +127,7 @@ function Search() {
     );
   }
   return (
-
-    <Loading />
-
+    <Loading considerHeaderHeight />
   );
 }
 

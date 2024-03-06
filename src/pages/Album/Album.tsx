@@ -34,13 +34,13 @@ function Album() {
 
   if (!isLoading) {
     return (
-      <article id="album-main-container" className="container primary-bg-color">
+      <article id="album-main-container" className="container-lg primary-bg-color">
         <div className="row">
-          <div id="songs-header" className="col-12 col-lg-5">
+          <div id="songs-header" className="col-12 col-md-5">
             {requestError && <p>{requestError}</p>}
             <AlbumCard album={ collection as AlbumType } />
           </div>
-          <div id="all-songs-container" className="col-12 col-lg-7 p-0">
+          <div id="all-songs-container" className="col-12 col-md-7 p-0">
             {musics.map((music) => (
               <MusicCard
                 key={ music.trackId }
@@ -54,7 +54,7 @@ function Album() {
       </article>
     );
   }
-  return <Loading />;
+  return <Loading considerHeaderHeight />;
 }
 
 export default Album;

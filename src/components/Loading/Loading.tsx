@@ -1,13 +1,13 @@
 import './Loading.css';
 
 type LoadingProps = {
-  height?: string;
+  considerHeaderHeight: boolean;
 };
 
-function Loading({ height = '100vh' }: LoadingProps) {
+function Loading({ considerHeaderHeight }: LoadingProps) {
   return (
     <div
-      style={ { height } }
+      style={ { height: considerHeaderHeight ? 'calc(100% - 133.84px)' : '100%' } }
       data-testid="loading-container-id"
       className="loading-container primary-bg-color"
     >
