@@ -66,6 +66,23 @@
     justify-content: center;
     align-items: center;
     min-height: 50px;
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+#section-albums #section-albums-header h3 {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 576px) {
+    #section-albums #section-albums-header h3 {
+        font-size: 22px;
+    }
 }
 
 #all-albums-container a {
@@ -74,34 +91,30 @@
 
 #all-albums-container {
     overflow-y: auto;
-    max-height: 400px;
-    min-height: 300px;
-    margin-bottom: 20px;
+    max-height: 350px;
+    min-height: 350px;
     margin-top: 20px;
     border-top: 1px solid #ffffff56;
     padding-top: 20px;
 }
 
+#all-albums-container::-webkit-scrollbar {
+    width: 5px;
+}
 
-@media screen and (min-width: 768px) {
+#all-albums-container::-webkit-scrollbar-thumb {
+    background-color: #9191916f;
+
+}
+
+#all-albums-container::-webkit-scrollbar-track {
+    /* fundo da barra de rolagem */
+    background-color:transparent;
+}
+
+@media screen and (min-width: 576px) {
     #all-albums-container {
         min-height: 500px;
         max-height: 500px;
-        margin-bottom: 50px;
     }
-
-    #all-albums-container::-webkit-scrollbar {
-        width: 5px;
-    }
-    
-    #all-albums-container::-webkit-scrollbar-thumb {
-        background-color: #9191916f;
-    
-    }
-
-    #all-albums-container::-webkit-scrollbar-track {
-        /* fundo da barra de rolagem */
-        background-color:transparent;
-    }
-
 }

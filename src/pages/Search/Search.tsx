@@ -113,7 +113,7 @@ function Search() {
                 to={ `/album/${album.collectionId}` }
                 data-testid={ `link-to-album-${album.collectionId}` }
                 key={ album.collectionId }
-                className="mb-5 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3"
+                className="mb-5 col-4 col-sm-4 col-xl-3"
               >
                 <AlbumCard
                   album={ album }

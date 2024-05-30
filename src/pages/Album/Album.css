@@ -1,7 +1,33 @@
 
-#album-main-container {
-    padding-top: 65px;
+
+#album-main-container .album-cover {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 #0000008f;
+    margin-top: 5px;
+    position: relative;
 }
+
+#album-main-container .album-cover img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+   
+}
+
+#album-main-container .album-cover h2 {
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    background-color: #0000008f;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 #songs-header {
     padding: 0;
 }
@@ -37,14 +63,9 @@
     color: #ffffff8f;
 }
 
-#songs-header #album-container .img-container {
-    width: 150px;
-    height: 150px;
-}
-
 #all-songs-container {
     overflow-y: auto;
-    max-height: 400px;
+    max-height: 420px;
     min-height: 370px;
     margin-bottom: 10px;
     margin-top: 20px;
@@ -59,19 +80,18 @@
         min-height: 0px;
         border-bottom: none;
     }
+}
 
-    #all-songs-container::-webkit-scrollbar {
-        width: 5px;
-    }
-    
-    #all-songs-container::-webkit-scrollbar-thumb {
-        background-color: #9191916f;
-    
-    }
+#all-songs-container::-webkit-scrollbar {
+    width: 5px;
+}
 
-    #all-songs-container::-webkit-scrollbar-track {
-        /* fundo da barra de rolagem */
-        background-color:transparent;
-    }
+#all-songs-container::-webkit-scrollbar-thumb {
+    background-color: #9191916f;
 
+}
+
+#all-songs-container::-webkit-scrollbar-track {
+    /* fundo da barra de rolagem */
+    background-color:transparent;
 }

@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 import getMusics from '../../services/musicsAPI';
 import { AlbumType, SongType } from '../../types';
 import Loading from '../../components/Loading/Loading';
-import AlbumCard from '../../components/AlbumCard/AlbumCard';
 import MusicCard from '../../components/MusicCard/MusicCard';
+import AlbumCover from './AlbumCover';
+import AlbumCard from '../../components/AlbumCard/AlbumCard';
 
 function Album() {
   const params = useParams();
@@ -38,7 +39,12 @@ function Album() {
         <div className="row">
           <div id="songs-header" className="col-12 col-md-5">
             {requestError && <p>{requestError}</p>}
-            <AlbumCard album={ collection as AlbumType } />
+            <div className="d-md-none">
+              <AlbumCover album={ collection as AlbumType } />
+            </div>
+            <div className="d-none d-md-block">
+              <AlbumCard album={ collection as AlbumType } />
+            </div>
           </div>
           <div id="all-songs-container" className="col-12 col-md-7 p-0">
             {musics.map((music) => (
