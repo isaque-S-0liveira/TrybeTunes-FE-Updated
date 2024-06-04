@@ -68,7 +68,7 @@ function Search() {
 
   if (!isLoading) {
     return (
-      <section className=" mt-4 p-0 container-lg">
+      <section className=" mt-4 p-0 container-fluid">
 
         <form id="search-form">
 
@@ -97,7 +97,10 @@ function Search() {
 
         </form>
 
-        <div id="section-albums" className="primary-bg-color mt-3 mt-md-4  container-lg ">
+        <div
+          id="section-albums"
+          className="primary-bg-color mt-3 mt-md-4 container-fluid"
+        >
           <div id="section-albums-header" className="col-12">
             <h3
               className="text-center text-light"

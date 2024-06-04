@@ -33,7 +33,7 @@
     color: #fff;
 }
 
-.bi-search {
+#input-search-container .bi-search {
     position: absolute;
     font-size: 20px;
     top: 0;
@@ -50,7 +50,7 @@
         padding: 5px;
     }
 
-    .bi-search {
+    #input-search-container .bi-search {
         font-size: 30px;
     
     }

@@ -6,10 +6,10 @@ function Layout() {
     <main className="container-fluid ">
       <div className="row">
 
-        <div className="col-12 p-0 ">
+        <div className="col-12 col-lg-3 p-0 ">
           <Header />
         </div>
-        <div className="col-12 p-0">
+        <div className="col-12 col-lg-9 p-0">
           <Outlet />
         </div>
       </div>

@@ -4,8 +4,9 @@
 import { useEffect, useState } from 'react';
 import logo from '/logo.png';
 import { getUser } from '../../services/userAPI';
-import NavLinkComponent from './NavLink';
+import NavLinkComponent from '../NavLink/NavLink';
 import './Header.css';
+import UserComponent from './User';
 
 function Header() {
   const [userName, setUserName] = useState('');
@@ -21,34 +22,24 @@ function Header() {
     request();
   }, []);
   return (
-    <header id="header-component">
-      <div id="header-container" className="d-flex justify-content-between align-items-center">
+    <header id="header-component" className="">
+      <div id="header-container" className="">
         <img id="header-logo" src={ logo } alt="logo" />
-
-        <div id="user-container">
-          <i id="user-icon" className="bi bi-person-circle" />
-          {isLoading && <span id="loading-name">Carregando...</span>}
-          <span
-            className={ userName.length >= 10 ? 'd-inline-block text-truncate' : '' }
-            data-testid="header-user-name"
-            id="user-name"
-          >
-            {userName}
-          </span>
-        </div>
+        <UserComponent className="d-lg-none" isLoading={ isLoading } userName={ userName } />
       </div>
 
-      <nav id="navBar" className="container-fluid ">
+      <nav id="navegation" className="container-fluid ">
         <div className="row">
 
-          <NavLinkComponent to="/search" linkName="Pesquisa" testId="link-to-search" />
+          <NavLinkComponent to="/search" linkName="Pesquisa" icon="bi bi-search" testId="link-to-search" />
 
-          <NavLinkComponent to="/favorites" linkName="Favoritas" testId="link-to-favorites" />
+          <NavLinkComponent to="/favorites" linkName="Favoritas" icon="bi bi-star" testId="link-to-favorites" />
 
-          <NavLinkComponent to="/profile" linkName="Perfil" testId="link-to-profile" />
+          <NavLinkComponent to="/profile" linkName="Perfil" icon="bi-person-circle" testId="link-to-profile" />
 
         </div>
       </nav>
+      <UserComponent className="d-none d-lg-flex" isLoading={ isLoading } userName={ userName } />
     </header>
   );
 }

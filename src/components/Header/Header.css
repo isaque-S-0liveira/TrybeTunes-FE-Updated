@@ -1,7 +1,43 @@
-#header-component #header-container {
+#header-component {
     background-color: rgba(46, 2, 68, 0.633);
+    height: 100%;
+}
+
+#header-component #header-container {
+    display: flex;
     padding: 12px;
+    justify-content: space-between;
+    align-items: center;
     padding-bottom: 20px;
+}
+
+#header-component #header-logo {
+    width: 100px;
+}
+
+@media screen and (min-width: 992px) {
+    #header-component  {
+        display: flex;
+        background-color: rgba(2, 0, 3, 0.626);
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 100vh;
+    } 
+
+    #header-component #header-container {
+        justify-content: center;
+        padding-bottom: 0;
+    }
+
+    #header-component #header-logo {
+        width: 170px;
+    }
+
+    #header-component #navegation {
+        margin-bottom: 5em;
+    }
+    
 }
 
 #header-component #user-container {
@@ -14,10 +50,19 @@
     background-color: rgb(7, 1, 35);
 }
 
+#header-component #nav-link-user {
+    border: none;
+    background-color: transparent;
+}
+
+#header-component #user-container:hover {
+    border: 1px solid rgb(131, 6, 255);
+    transition: .5s;
+}
+
 @media screen and (min-width: 576px){
     #header-component #user-container {
         max-width: 180px;
-        min-width: 150px;
     }
 }
 
@@ -25,6 +70,13 @@
     #header-component #user-container {
         max-width: 270px;
     }
+}
+
+@media screen and (min-width: 992px) {
+    #header-component #user-container {
+        margin-bottom: 2em;
+    }
+
 }
 
 #header-component #user-icon, #user-name, #loading-name {
@@ -35,13 +87,10 @@
     font-size: 1.5em;
     color: rgb(131, 6, 255);
     margin-left: 5px;
-    margin-right: 10px;
+    padding-right: 10px;
 }
 
 #header-component #user-name {
-    display: flex;
-    width: 100%;
-    justify-content: center;
     margin-right: 10px;
     max-width: 70px;
 }
@@ -58,29 +107,12 @@
     }
 }
 
-#header-component #header-logo {
-    width: 100px;
+@media screen and (min-width: 992px) {
+    #header-component #user-name{
+        font-size: 16px;
+    }
+    #header-component #user-icon {
+        font-size: 2em;
+    }
 }
 
-#header-component .nav-link-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    text-decoration: none;
-    border: 1px solid #fff;
-    color: #fff;
-    background-color: rgb(119, 0, 255);
-}
-
-#header-component .nav-link-active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    text-decoration: none;
-    border: 1px solid #fff;
-    color: #ffffff;
-    background-color: rgba(119, 0, 255, 0.246);
-    transition: .5s;
-}
