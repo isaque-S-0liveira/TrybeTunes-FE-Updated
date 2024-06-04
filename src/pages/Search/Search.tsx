@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import { AlbumType } from '../../types';
-import Button from '../../components/Forms/Button';
-import Input from '../../components/Forms/Input';
 import Loading from '../../components/Loading/Loading';
 import AlbumCard from '../../components/AlbumCard/AlbumCard';
 import './Search.css';
+import SearchForm from './SearchForm';
+import HeaderViewer from '../../components/HeaderViewer/HeaderViewer';
 
 function Search() {
   const [search, setSearch] = useState('');
@@ -68,38 +68,29 @@ function Search() {
 
   if (!isLoading) {
     return (
-      <section className=" mt-4 p-0 container-fluid">
-
-        <form id="search-form">
-
-          <div id="input-search-container" className="position-relative">
-            <Input
-              id="search-artist-input"
-              testId="search-artist-input"
-              placeholder="Nome do artista"
-              onChange={ handleSearch }
-              enterClick={ handleKeyDown }
-              value={ search }
-            />
-            <i className="bi bi-search text-primary " />
-          </div>
-
-          <Button
-            testId="search-artist-button"
-            type="button"
+      <section className="mt-4 mt-lg-0 p-0 container-fluid">
+        <HeaderViewer
+          viewer={ <SearchForm
+            formClassName=""
+            handleSearch={ handleSearch }
+            handleKeyDown={ handleKeyDown }
+            handleSearchButton={ handleSearchButton }
+            search={ search }
             disabled={ disabled }
-            containerClassName=""
-            btnClassName="primary-btn"
-            onClick={ handleSearchButton }
-          >
-            Procurar
-          </Button>
-
-        </form>
+          /> }
+        />
+        <SearchForm
+          formClassName="d-lg-none"
+          handleSearch={ handleSearch }
+          handleKeyDown={ handleKeyDown }
+          handleSearchButton={ handleSearchButton }
+          search={ search }
+          disabled={ disabled }
+        />
 
         <div
           id="section-albums"
-          className="primary-bg-color mt-3 mt-md-4 container-fluid"
+          className="primary-bg-color mt-3 mt-md-4 mt-lg-0 container-fluid"
         >
           <div id="section-albums-header" className="col-12">
             <h3
@@ -130,7 +121,19 @@ function Search() {
     );
   }
   return (
-    <Loading considerHeaderHeight />
+    <>
+      <HeaderViewer
+        viewer={ <SearchForm
+          formClassName=""
+          handleSearch={ handleSearch }
+          handleKeyDown={ handleKeyDown }
+          handleSearchButton={ handleSearchButton }
+          search={ search }
+          disabled={ disabled }
+        /> }
+      />
+      <Loading considerHeaderHeight />
+    </>
   );
 }
 

@@ -1,8 +1,10 @@
 import './HeaderViewer.css';
 
-function HeaderViewer() {
+function HeaderViewer({ viewer }: { viewer: JSX.Element }) {
   return (
-    <div id="header-lg-viewer" className="d-none d-lg-block" />
+    <div id="header-lg-viewer" className="d-none d-lg-block">
+      {viewer}
+    </div>
   );
 }
 

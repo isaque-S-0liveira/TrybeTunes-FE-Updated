@@ -61,6 +61,12 @@
     
 }
 
+@media screen and (min-width: 992px) {
+    #search-form {
+        height: 100%;
+    }
+}
+
 #section-albums #section-albums-header {
     display: flex;
     justify-content: center;
@@ -89,9 +95,9 @@
     text-decoration: none;
 }
 
+
 #all-albums-container {
-    overflow-y: auto;
-    max-height: 350px;
+    overflow: scroll;
     min-height: 350px;
     margin-top: 20px;
     border-top: 1px solid #ffffff56;
@@ -115,6 +121,11 @@
 @media screen and (min-width: 576px) {
     #all-albums-container {
         min-height: 500px;
-        max-height: 500px;
+    }
+}
+
+@media screen and (min-width: 992px){
+    #all-albums-container {
+        max-height: calc(100vh - 250px);
     }
 }
