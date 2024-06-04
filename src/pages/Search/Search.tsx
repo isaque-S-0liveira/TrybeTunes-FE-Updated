@@ -132,7 +132,12 @@ function Search() {
           disabled={ disabled }
         /> }
       />
-      <Loading considerHeaderHeight />
+      <div className="d-lg-none">
+        <Loading considerHeaderHeight position="absolute" consideredHight="136px" />
+      </div>
+      <div className="d-none d-lg-flex">
+        <Loading considerHeaderHeight consideredHight="225px" />
+      </div>
     </>
   );
 }

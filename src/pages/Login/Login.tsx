@@ -84,7 +84,7 @@ function Login() {
     );
   }
 
-  return <Loading considerHeaderHeight={ false } />;
+  return <Loading considerHeaderHeight={ false } position="absolute" />;
 }
 
 export default Login;

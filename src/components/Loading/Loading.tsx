@@ -2,12 +2,20 @@ import './Loading.css';
 
 type LoadingProps = {
   considerHeaderHeight: boolean;
+  consideredHight?: string;
+  position?: 'static' | 'absolute' ;
 };
 
-function Loading({ considerHeaderHeight }: LoadingProps) {
+function Loading({
+  position = 'static',
+  considerHeaderHeight,
+  consideredHight = '0px',
+}: LoadingProps) {
   return (
     <div
-      style={ { height: considerHeaderHeight ? 'calc(100% - 133.84px)' : '100%' } }
+      style={ {
+        position,
+        height: considerHeaderHeight ? `calc(100vh - ${consideredHight})` : '100%' } }
       data-testid="loading-container-id"
       className="loading-container primary-bg-color"
     >
