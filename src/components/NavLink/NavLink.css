@@ -45,13 +45,11 @@
 
 
     #header-component .nav-link-disabled {
-        color: rgb(119, 0, 255);
         background-color: transparent;
     }
     
     #header-component .nav-link-active {
-        color: rgba(119, 0, 255, 0.246);
-        background-color: transparent;
+        background-color: rgba(180, 113, 248, 0.328);
         transition: .5s;
     }
     
