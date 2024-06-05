@@ -64,6 +64,7 @@
 @media screen and (min-width: 992px) {
     #search-form {
         height: 100%;
+        margin-top: 0;
     }
 }
 
@@ -97,7 +98,6 @@
 
 
 #all-albums-container {
-    overflow: scroll;
     min-height: 350px;
     margin-top: 20px;
     border-top: 1px solid #ffffff56;
@@ -118,14 +118,9 @@
     background-color:transparent;
 }
 
-@media screen and (min-width: 576px) {
-    #all-albums-container {
-        min-height: 500px;
-    }
-}
-
 @media screen and (min-width: 992px){
     #all-albums-container {
-        max-height: calc(100vh - 250px);
+        overflow: scroll;
+        max-height: calc(100vh - 300px);
     }
 }
