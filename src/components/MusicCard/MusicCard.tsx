@@ -3,6 +3,9 @@ import './MusicCard.css';
 import Img from '../Imagem';
 import empty_heart from '../../assets/empty_heart.png';
 import checked_heart from '../../assets/checked_heart.png';
+import { addSong, removeSong } from '../../services/favoriteSongsAPI';
+import getMusics from '../../services/musicsAPI';
+import { SongType } from '../../types';
 
 type MusicCardProps = {
   musicName: string;
@@ -12,8 +15,14 @@ type MusicCardProps = {
 
 function MusicCard({ musicName, musicPreview, trackId }: MusicCardProps) {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
-  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = async (e:React.ChangeEvent<HTMLInputElement>) => {
     setIsFavorite(e.target.checked);
+    const song = await getMusics(e.target.value) as SongType[];
+    if (e.target.checked) {
+      addSong(song[0]);
+    } else {
+      removeSong(song[0]);
+    }
   };
   return (
     <div id="music-container">
@@ -31,10 +40,12 @@ function MusicCard({ musicName, musicPreview, trackId }: MusicCardProps) {
         </audio>
         <input
           id={ trackId.toString() }
+          data-testid={ `checkbox-music-${trackId}` }
           type="checkbox"
           className="d-none"
           checked={ isFavorite }
           onChange={ handleChange }
+          value={ trackId }
         />
         <label htmlFor={ trackId.toString() }>
           <Img src={ isFavorite ? checked_heart : empty_heart } alt="favorita" />

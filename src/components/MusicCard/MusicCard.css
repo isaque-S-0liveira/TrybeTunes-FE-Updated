@@ -91,7 +91,9 @@
 }
 
 @media screen and (min-width: 992px){
-  
+    #music-container {
+       max-width: 450px;
+    }
 
     #audio-icon-container {
         width: auto;
@@ -99,5 +101,18 @@
 
     #audio-icon-container audio {
         padding-right: 10px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    #music-container {
+        max-width: 500px;
+    }
+    
+}
+
+@media screen and (min-width: 1400px){
+    #music-container {
+        max-width: 750px;
     }
 }
