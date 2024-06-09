@@ -4,6 +4,7 @@ type LoadingProps = {
   considerHeaderHeight: boolean;
   consideredHight?: string;
   position?: 'static' | 'absolute' ;
+
 };
 
 function Loading({

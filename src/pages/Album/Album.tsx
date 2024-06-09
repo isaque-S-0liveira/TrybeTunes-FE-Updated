@@ -3,10 +3,11 @@ import './Album.css';
 import { useEffect, useState } from 'react';
 import getMusics from '../../services/musicsAPI';
 import { AlbumType, SongType } from '../../types';
-import Loading from '../../components/Loading/Loading';
 import MusicCard from '../../components/MusicCard/MusicCard';
+import HeaderViewer from '../../components/HeaderViewer/HeaderViewer';
+import SLS from '../../components/SpecificLoadingScreen/SpecificLoadingScreen';
+import AlbumHeaderSMMD from './AlbumHeaderSMMD';
 import AlbumCover from './AlbumCover';
-import AlbumCard from '../../components/AlbumCard/AlbumCard';
 
 function Album() {
   const params = useParams();
@@ -35,32 +36,35 @@ function Album() {
 
   if (!isLoading) {
     return (
-      <article id="album-main-container" className="container-lg primary-bg-color">
-        <div className="row">
-          <div id="songs-header" className="col-12 col-md-5">
-            {requestError && <p>{requestError}</p>}
-            <div className="d-md-none">
-              <AlbumCover album={ collection as AlbumType } />
-            </div>
-            <div className="d-none d-md-block">
-              <AlbumCard album={ collection as AlbumType } />
+      <div id="album-page">
+        <HeaderViewer viewer={ <AlbumCover album={ collection as AlbumType } /> } />
+        <article id="album-main-container" className="container-fluid primary-bg-color">
+          <div className="row">
+            <AlbumHeaderSMMD
+              collection={ collection as AlbumType }
+              requestError={ requestError }
+            />
+            <div id="all-songs-container" className="col-12 col-md-7 col-lg-12 p-0">
+              {musics.map((music) => (
+                <MusicCard
+                  key={ music.trackId }
+                  musicName={ music.trackName }
+                  musicPreview={ music.previewUrl }
+                  trackId={ music.trackId }
+                />
+              ))}
             </div>
           </div>
-          <div id="all-songs-container" className="col-12 col-md-7 p-0">
-            {musics.map((music) => (
-              <MusicCard
-                key={ music.trackId }
-                musicName={ music.trackName }
-                musicPreview={ music.previewUrl }
-                trackId={ music.trackId }
-              />
-            ))}
-          </div>
-        </div>
-      </article>
+        </article>
+      </div>
     );
   }
-  return <Loading considerHeaderHeight />;
+  return (
+    <>
+      <HeaderViewer viewer={ <div id="loading-headerViewer">Carregando...</div> } />
+      <SLS />
+    </>
+  );
 }
 
 export default Album;

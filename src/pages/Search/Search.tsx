@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import { AlbumType } from '../../types';
-import Loading from '../../components/Loading/Loading';
+import SLS from '../../components/SpecificLoadingScreen/SpecificLoadingScreen';
 import AlbumCard from '../../components/AlbumCard/AlbumCard';
 import './Search.css';
 import SearchForm from './SearchForm';
@@ -132,12 +132,7 @@ function Search() {
           disabled={ disabled }
         /> }
       />
-      <div className="d-lg-none">
-        <Loading considerHeaderHeight position="absolute" consideredHight="136px" />
-      </div>
-      <div className="d-none d-lg-flex">
-        <Loading considerHeaderHeight consideredHight="225px" />
-      </div>
+      <SLS />
     </>
   );
 }
