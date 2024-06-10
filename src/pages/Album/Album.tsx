@@ -8,30 +8,36 @@ import HeaderViewer from '../../components/HeaderViewer/HeaderViewer';
 import SLS from '../../components/SpecificLoadingScreen/SpecificLoadingScreen';
 import AlbumHeaderSMMD from './AlbumHeaderSMMD';
 import AlbumCover from './AlbumCover';
+import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
 
 function Album() {
   const params = useParams();
   const [musics, setMusics] = useState<SongType[]>([]);
+  const [favoriteSongs, setFavoriteSongs] = useState<SongType[]>([]);
   const [collection, setCollection] = useState<AlbumType>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [requestError, setRequestError] = useState<string>('');
+  const fetchMusics = async () => {
+    try {
+      const albumAndSongs = await getMusics(params.id as string);
+      const album = albumAndSongs[0];
+      const remainingMusics = albumAndSongs.slice(1);
+      setCollection(album as AlbumType);
+      setMusics(remainingMusics as SongType[]);
+    } catch (error) {
+      setRequestError('Erro ao buscar as músicas');
+      setIsLoading(false);
+    }
+  };
+  const fetchFavoriteSongs = async () => {
+    setFavoriteSongs(await getFavoriteSongs());
+  };
   useEffect(() => {
-    const fetchMusics = async () => {
-      try {
-        const albumAndSongs = await getMusics(params.id as string);
-        const album = albumAndSongs[0];
-        const remainingMusics = albumAndSongs.slice(1);
-        setCollection(album as AlbumType);
-        setMusics(remainingMusics as SongType[]);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 2000);
-      } catch (error) {
-        setRequestError('Erro ao buscar as músicas');
-        setIsLoading(false);
-      }
-    };
+    fetchFavoriteSongs();
     fetchMusics();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   }, []);
 
   if (!isLoading) {
@@ -51,6 +57,7 @@ function Album() {
                   musicName={ music.trackName }
                   musicPreview={ music.previewUrl }
                   trackId={ music.trackId }
+                  favoriteSongs={ favoriteSongs }
                 />
               ))}
             </div>

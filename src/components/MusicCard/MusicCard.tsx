@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './MusicCard.css';
 import Img from '../Imagem';
 import empty_heart from '../../assets/empty_heart.png';
@@ -11,9 +11,10 @@ type MusicCardProps = {
   musicName: string;
   musicPreview: string;
   trackId: number;
+  favoriteSongs: SongType[];
 };
 
-function MusicCard({ musicName, musicPreview, trackId }: MusicCardProps) {
+function MusicCard({ musicName, musicPreview, trackId, favoriteSongs }: MusicCardProps) {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
   const handleChange = async (e:React.ChangeEvent<HTMLInputElement>) => {
     setIsFavorite(e.target.checked);
@@ -24,6 +25,11 @@ function MusicCard({ musicName, musicPreview, trackId }: MusicCardProps) {
       removeSong(song[0]);
     }
   };
+
+  useEffect(() => {
+    setIsFavorite(favoriteSongs.some((song) => song.trackId === trackId));
+  }, []);
+
   return (
     <div id="music-container">
       <div id="musicNameContainer" className="default-scrollbar">
