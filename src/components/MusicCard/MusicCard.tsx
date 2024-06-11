@@ -6,16 +6,24 @@ import checked_heart from '../../assets/checked_heart.png';
 import { addSong, removeSong } from '../../services/favoriteSongsAPI';
 import getMusics from '../../services/musicsAPI';
 import { SongType } from '../../types';
+import AlbumImg from './AlbumImg';
 
 type MusicCardProps = {
   musicName: string;
   musicPreview: string;
   trackId: number;
   favoriteSongs: SongType[];
+  artworkUrl100?: string;
 };
 
-function MusicCard({ musicName, musicPreview, trackId, favoriteSongs }: MusicCardProps) {
+function MusicCard({
+  musicName,
+  musicPreview,
+  trackId,
+  favoriteSongs,
+  artworkUrl100 = '' }: MusicCardProps) {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
+
   const handleChange = async (e:React.ChangeEvent<HTMLInputElement>) => {
     setIsFavorite(e.target.checked);
     const song = await getMusics(e.target.value) as SongType[];
@@ -33,9 +41,11 @@ function MusicCard({ musicName, musicPreview, trackId, favoriteSongs }: MusicCar
   return (
     <div id="music-container">
       <div id="musicNameContainer" className="default-scrollbar">
-        <p>{musicName}</p>
+
+        <span>{musicName}</span>
       </div>
       <div id="audio-icon-container">
+        <AlbumImg artworkUrl100={ artworkUrl100 } />
         <audio data-testid="audio-component" src={ musicPreview } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento

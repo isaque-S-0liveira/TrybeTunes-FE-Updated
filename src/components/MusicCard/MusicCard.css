@@ -1,3 +1,8 @@
+@media screen and (min-width: 451px) {
+    .d-smm-none {
+        display: none;
+    }
+}
 #music-container {
     display: flex;
     flex-direction: column;
@@ -42,7 +47,7 @@
 
 
 
-#music-container #musicNameContainer p {
+#music-container #musicNameContainer span {
     font-weight: 700;
     color: #fff;
     margin: 0;

@@ -42,7 +42,7 @@ function Album() {
 
   if (!isLoading) {
     return (
-      <div id="album-page">
+      <main id="album-page">
         <HeaderViewer viewer={ <AlbumCover album={ collection as AlbumType } /> } />
         <article id="album-main-container" className="container-fluid primary-bg-color">
           <div className="row">
@@ -63,7 +63,7 @@ function Album() {
             </div>
           </div>
         </article>
-      </div>
+      </main>
     );
   }
   return (
