@@ -2,6 +2,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '/logo.png';
 import { getUser } from '../../services/userAPI';
 import NavLinkComponent from '../NavLink/NavLink';
@@ -21,10 +22,13 @@ function Header() {
     };
     request();
   }, []);
+
   return (
     <header id="header-component" className="">
       <div id="header-container" className="">
-        <img id="header-logo" src={ logo } alt="logo" />
+        <Link to="/search">
+          <img id="header-logo" src={ logo } alt="logo" />
+        </Link>
         <UserComponent className="d-lg-none" isLoading={ isLoading } userName={ userName } />
       </div>
 

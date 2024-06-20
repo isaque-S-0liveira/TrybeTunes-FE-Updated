@@ -5,9 +5,10 @@ function FavoritesSongs({ favoriteSongs }: { favoriteSongs: SongType[] }) {
   if (favoriteSongs.length !== 0) {
     return (
       <div>
-        {favoriteSongs.map((song) => (
+        {favoriteSongs.map((song, i) => (
           <MusicCard
-            key={ song.trackId }
+            key={ i }
+            idCss="music-card-favorite"
             artworkUrl100={ song.artworkUrl100 }
             musicName={ song.trackName }
             musicPreview={ song.previewUrl }
@@ -19,7 +20,7 @@ function FavoritesSongs({ favoriteSongs }: { favoriteSongs: SongType[] }) {
     );
   }
   return (
-    <h3 className="empty-favorites">Não há músicas favoritas</h3>
+    <h3 className="empty-favorites mt-5">Não há músicas favoritas</h3>
   );
 }
 

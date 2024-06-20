@@ -181,14 +181,6 @@
     }
 }
 
-@media screen and (min-width: 1200px){
-    #all-songs-container {
-        display: flex;
-        flex-direction: column;
-        overflow: visible;
-       
-    }
-}
 
 
 #all-songs-container::-webkit-scrollbar {

@@ -54,6 +54,7 @@ function Album() {
               {musics.map((music) => (
                 <MusicCard
                   key={ music.trackId }
+                  idCss="music-card-album"
                   musicName={ music.trackName }
                   musicPreview={ music.previewUrl }
                   trackId={ music.trackId }

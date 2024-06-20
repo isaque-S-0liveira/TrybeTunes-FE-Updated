@@ -1,9 +1,4 @@
-@media screen and (min-width: 451px) {
-    .d-smm-none {
-        display: none;
-    }
-}
-#music-container {
+.music-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -18,19 +13,19 @@
     margin-left: 10px;
 }
 
-#music-container #musicNameContainer {
+.music-container #musicNameContainer {
     max-width: 100%;
     max-height: 50px;
     overflow-x: auto;
 }
 
 @media screen and (min-width: 450px) {
-    #music-container {
+    .music-container {
         flex-direction: row;
         align-items: center;
     }
 
-    #music-container #musicNameContainer {
+    .music-container #musicNameContainer {
         min-width: 100px;
         max-width: 100px;
         margin-right: 20px;
@@ -39,7 +34,7 @@
 }
 
 @media screen and (min-width: 768px){
-    #music-container #musicNameContainer {
+    .music-container #musicNameContainer {
         max-width: 200px;
         min-width: 200px;
     }
@@ -47,7 +42,7 @@
 
 
 
-#music-container #musicNameContainer span {
+.music-container #musicNameContainer span {
     font-weight: 700;
     color: #fff;
     margin: 0;
@@ -63,13 +58,22 @@
     width: 100%;
 }
 
-#music-container img {
-    width: 30px;
-    transition: .3s;
+
+.music-container #checked-heart, #emptyHeart {
+    font-size: 30px;
     cursor: pointer;
 }
 
-#music-container label {
+.music-container #emptyHeart {
+    color: #fff;
+}
+
+.music-container #checked-heart {
+    color: rgb(249, 48, 48);
+}
+       
+
+.music-container label {
     padding-left: 15px;
 }
 
@@ -96,7 +100,7 @@
 }
 
 @media screen and (min-width: 992px){
-    #music-container {
+    .music-container {
        max-width: 450px;
     }
 
@@ -110,14 +114,14 @@
 }
 
 @media screen and (min-width: 1200px){
-    #music-container {
+    .music-container {
         max-width: 500px;
     }
     
 }
 
 @media screen and (min-width: 1400px){
-    #music-container {
+    .music-container {
         max-width: 750px;
     }
 }

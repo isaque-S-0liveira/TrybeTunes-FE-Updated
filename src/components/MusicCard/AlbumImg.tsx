@@ -1,6 +1,11 @@
-function AlbumImg({ artworkUrl100 }: { artworkUrl100: string }) {
+type AlbumImgProps = {
+  artworkUrl100: string;
+  display: string;
+};
+
+function AlbumImg({ artworkUrl100, display }: AlbumImgProps) {
   return (
-    <div className="d-smm-none">
+    <div className={ display }>
       <img
         id="album-img"
         src={ artworkUrl100 }
