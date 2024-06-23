@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import './Album.css';
+import './AlbumCardSongs.css';
 import { useEffect, useState } from 'react';
 import getMusics from '../../services/musicsAPI';
 import { AlbumType, SongType } from '../../types';
@@ -50,7 +51,7 @@ function Album() {
               collection={ collection as AlbumType }
               requestError={ requestError }
             />
-            <div id="all-songs-container" className="col-12 col-md-7 col-lg-12 p-0">
+            <div id="all-songs-container" className="col-12 col-md-7 col-lg-8 p-0">
               {musics.map((music) => (
                 <MusicCard
                   key={ music.trackId }

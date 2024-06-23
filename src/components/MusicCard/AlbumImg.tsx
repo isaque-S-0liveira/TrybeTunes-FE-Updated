@@ -1,19 +1,27 @@
+import { Link } from 'react-router-dom';
+
 type AlbumImgProps = {
   artworkUrl100: string;
+  collectionId: number;
   display: string;
 };
 
-function AlbumImg({ artworkUrl100, display }: AlbumImgProps) {
+function AlbumImg({ artworkUrl100, collectionId, display }: AlbumImgProps) {
   return (
     <div className={ display }>
-      <img
-        id="album-img"
-        src={ artworkUrl100 }
-        alt="album img"
-        className={
-      `${artworkUrl100 === '' ? 'd-none' : 'd-inline'} `
-      }
-      />
+      <Link
+        to={ `/album/${collectionId}` }
+        data-testid={ `link-to-album-${collectionId}` }
+      >
+        <img
+          id="album-img"
+          src={ artworkUrl100 }
+          alt="album img"
+          className={
+          `${artworkUrl100 === '' ? 'd-none' : 'd-inline'} `
+        }
+        />
+      </Link>
     </div>
   );
 }

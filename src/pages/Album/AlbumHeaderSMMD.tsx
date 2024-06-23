@@ -9,7 +9,7 @@ type AlbumHeaderProps = {
 
 function AlbumHeaderSMMD({ collection, requestError }: AlbumHeaderProps) {
   return (
-    <div id="album-header" className="col-12 col-md-5 d-lg-none">
+    <div id="album-header" className="col-12 col-md-5 col-lg-4">
       {requestError && <p>{requestError}</p>}
       <div className="d-md-none">
         <AlbumCover album={ collection as AlbumType } />

@@ -17,6 +17,7 @@ export type UserType = {
 };
 
 export type SongType = {
+  collectionId: number,
   artworkUrl100: string | undefined;
   trackId: number,
   trackName: string,

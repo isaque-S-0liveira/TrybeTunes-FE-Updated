@@ -68,7 +68,7 @@ function Search() {
 
   if (!isLoading) {
     return (
-      <main className="mt-4 mt-lg-0 p-0 container-fluid">
+      <main className="mt-3 mt-lg-0 p-0 container-fluid">
         <HeaderViewer
           viewer={ <SearchForm
             formClassName=""

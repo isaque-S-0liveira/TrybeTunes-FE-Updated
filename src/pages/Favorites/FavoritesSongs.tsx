@@ -1,10 +1,17 @@
+import { useEffect } from 'react';
 import MusicCard from '../../components/MusicCard/MusicCard';
 import { SongType } from '../../types';
 
 function FavoritesSongs({ favoriteSongs }: { favoriteSongs: SongType[] }) {
+  useEffect(() => {
+
+  }, [favoriteSongs]);
   if (favoriteSongs.length !== 0) {
     return (
-      <div>
+      <article
+        id="all-favorites-songs-container"
+        className="primary-bg-color default-scrollbar"
+      >
         {favoriteSongs.map((song, i) => (
           <MusicCard
             key={ i }
@@ -14,9 +21,10 @@ function FavoritesSongs({ favoriteSongs }: { favoriteSongs: SongType[] }) {
             musicPreview={ song.previewUrl }
             trackId={ song.trackId }
             favoriteSongs={ favoriteSongs }
+            collectionId={ song.collectionId }
           />
         ))}
-      </div>
+      </article>
     );
   }
   return (

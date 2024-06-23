@@ -8,8 +8,8 @@ type UserComponentProps = {
 
 function UserComponent({ className, isLoading, userName }: UserComponentProps) {
   return (
-    <NavLink id="nav-link-user" className="nav-link" to="/profile">
-      <div id="user-container" className={ className }>
+    <NavLink id="nav-link-user" className={ ` ${className} nav-link` } to="/profile">
+      <div id="user-container">
         <i id="user-icon" className="bi bi-person-circle" />
         {isLoading && <span id="loading-name">Carregando...</span>}
         <span

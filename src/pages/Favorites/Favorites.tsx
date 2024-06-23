@@ -31,12 +31,8 @@ function Favorites() {
             <h3 className="favorites-header">Músicas Favoritas</h3>
           }
         />
-        <article
-          id="favorites-songs-container"
-          className="primary-bg-color default-scrollbar"
-        >
-          <FavoritesSongs favoriteSongs={ favoriteSongs } />
-        </article>
+
+        <FavoritesSongs favoriteSongs={ favoriteSongs } />
       </main>
     );
   }

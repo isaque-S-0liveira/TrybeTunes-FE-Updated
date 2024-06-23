@@ -1,11 +1,7 @@
 .music-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
-    padding: 5px 5px;
     background-color: #3402402a;
     border-radius: 10px;
+    padding: 5px 5px;
     border: 1px solid hsla(0, 0%, 100%, 0.17);
     margin-bottom: 5px;
     margin-top: 5px;
@@ -13,34 +9,27 @@
     margin-left: 10px;
 }
 
+.music-container #checked-heart, #emptyHeart {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.music-container label {
+    padding-left: 15px;
+}
+.music-container #emptyHeart {
+    color: #fff;
+}
+
+.music-container #checked-heart {
+    color: rgb(249, 48, 48);
+}
+
 .music-container #musicNameContainer {
     max-width: 100%;
     max-height: 50px;
     overflow-x: auto;
 }
-
-@media screen and (min-width: 450px) {
-    .music-container {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .music-container #musicNameContainer {
-        min-width: 100px;
-        max-width: 100px;
-        margin-right: 20px;
-    }
-    
-}
-
-@media screen and (min-width: 768px){
-    .music-container #musicNameContainer {
-        max-width: 200px;
-        min-width: 200px;
-    }
-}
-
-
 
 .music-container #musicNameContainer span {
     font-weight: 700;
@@ -51,77 +40,13 @@
 
 #audio-icon-container {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
-    width: 100%;
-}
-
-
-.music-container #checked-heart, #emptyHeart {
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.music-container #emptyHeart {
-    color: #fff;
-}
-
-.music-container #checked-heart {
-    color: rgb(249, 48, 48);
-}
-       
-
-.music-container label {
-    padding-left: 15px;
 }
 
 #audio-icon-container audio {
-    max-width: 100%;
-    width: 350px;
+    width: 100%;
     padding: 10px 0;
 }
 
 
-@media screen and (min-width: 450px){
-    #audio-icon-container  {
-        margin-top: auto;
-    
-}
-}
-
-
-@media screen and (min-width: 576px){
-    #audio-icon-container audio {
-        width: 400px;
-        padding-right: 10px;
-    }
-}
-
-@media screen and (min-width: 992px){
-    .music-container {
-       max-width: 450px;
-    }
-
-    #audio-icon-container {
-        width: auto;
-    }
-
-    #audio-icon-container audio {
-        padding-right: 10px;
-    }
-}
-
-@media screen and (min-width: 1200px){
-    .music-container {
-        max-width: 500px;
-    }
-    
-}
-
-@media screen and (min-width: 1400px){
-    .music-container {
-        max-width: 750px;
-    }
-}
