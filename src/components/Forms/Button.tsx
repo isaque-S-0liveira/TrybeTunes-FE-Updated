@@ -5,7 +5,7 @@ type ButtonProps = {
   containerClassName: string;
   btnClassName: string;
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 function Button(
@@ -15,7 +15,7 @@ function Button(
     containerClassName,
     btnClassName,
     children,
-    onClick,
+    onClick = () => {},
   }: ButtonProps,
 ) {
   return (

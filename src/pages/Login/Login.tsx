@@ -7,7 +7,7 @@ import Input from '../../components/Forms/Input';
 import logo from '/logo.png';
 import Img from '../../components/Imagem';
 import './Login.css';
-import { createUser } from '../../services/userAPI';
+import { createUser, getUser } from '../../services/userAPI';
 import Loading from '../../components/Loading/Loading';
 
 function Login() {
@@ -18,7 +18,6 @@ function Login() {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-
     setUsername(value);
     if (value.length < 3) {
       setButtonDisabled(true);
@@ -28,9 +27,10 @@ function Login() {
   };
 
   const handleClick = async () => {
+    const user = await getUser();
     if (userName.length >= 3) {
       setIsLoading(true);
-      await createUser({ name: userName });
+      await createUser({ ...user, name: userName });
       setIsLoading(false);
       navigate('/search');
     } else {

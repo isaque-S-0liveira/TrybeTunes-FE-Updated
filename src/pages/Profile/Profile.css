@@ -1,0 +1,17 @@
+#main-profile-container {
+    background-color: rgba(18, 5, 30, 0.849);
+}
+
+@media screen and (min-width: 768px) {
+    #main-profile-container {
+        height: calc(100vh - 140px);
+    }
+    
+}
+
+@media screen and (min-width: 992px) {
+    #main-profile-container {
+        height: calc(100vh - 225px);
+    }
+    
+}
