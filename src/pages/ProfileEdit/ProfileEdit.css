@@ -1,0 +1,25 @@
+#main-editprofile-container {
+    display: flex;
+    align-items: center;
+    background-color: rgba(9, 0, 19, 0.919);
+    height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+    #main-editprofile-container {
+        height: calc(100vh - 155px);
+    }
+    
+    #main-editprofile-container #user-icon-img-main {
+        margin-bottom: 200px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #main-editprofile-container {
+        height: calc(100vh - 225px);
+        background-color: rgba(18, 5, 30, 0.849);
+        align-items: flex-start;
+    }
+    
+}

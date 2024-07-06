@@ -27,7 +27,7 @@ export const getUser = (): Promise<UserType> => new Promise((resolve) => {
   simulateRequest(user)(resolve);
 });
 
-export const createUser = (user: UserType | { name: string } | { image: string })
+export const createUser = (user: UserType | { name: string })
 : Promise<'OK'> => new Promise((resolve) => {
   const emptyUser = {
     name: '',

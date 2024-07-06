@@ -1,5 +1,6 @@
 type InputProps = {
   id: string;
+  type: 'text' | 'email';
   testId: string;
   value: string;
   label?: string;
@@ -11,6 +12,7 @@ type InputProps = {
 
 function Input({
   id,
+  type = 'text',
   testId,
   value,
   label = '',
@@ -30,11 +32,12 @@ function Input({
         id={ id }
         data-testid={ testId }
         className="form-control"
-        type="text"
+        type={ type }
         value={ value }
         onChange={ (e) => onChange(e) }
         placeholder={ placeholder }
         onKeyDown={ (e) => e.key === 'Enter' && enterClick(e) }
+        required
       />
     </div>
   );

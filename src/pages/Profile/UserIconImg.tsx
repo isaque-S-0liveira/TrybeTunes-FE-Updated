@@ -1,10 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
-import { createUser, getUser } from '../../services/userAPI';
+import { getUser, updateUser } from '../../services/userAPI';
 import SpinnerLoading from '../../components/Loading/SpinnerLoading';
 import './UserIconImg.css';
 import UserContext from '../../context/UserContext';
 
-function UserIconImg() {
+type UserIconImgProps = {
+  isEdit?: boolean;
+};
+
+function UserIconImg(isEdit: UserIconImgProps) {
   const { imgCT, setImgCT } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,7 +33,7 @@ function UserIconImg() {
       setIsLoading(true);
       const base64 = await toBase64(file);
       const user = await getUser();
-      await createUser({
+      await updateUser({
         ...user,
         image: base64,
       });
@@ -40,6 +44,8 @@ function UserIconImg() {
   useEffect(() => {
     fetchUser();
   }, []);
+
+  useEffect(() => { fetchUser(); }, [isEdit]);
 
   return (
     <div id="user-icon-img-main">
