@@ -11,7 +11,7 @@ type UserComponentProps = {
 
 function UserComponent({ className, isLoading, userName }: UserComponentProps) {
   const navigate = useNavigate();
-  const { imgCT, setImgCT } = useContext(UserContext);
+  const { userNameCT, imgCT, setImgCT, setUserNameCT } = useContext(UserContext);
 
   const redirectToLogin = () => {
     if (userName === '' && userName === undefined) {
@@ -22,6 +22,7 @@ function UserComponent({ className, isLoading, userName }: UserComponentProps) {
   const fetchUser = async () => {
     const user = await getUser();
     setImgCT(user.image);
+    setUserNameCT(user.name);
   };
 
   useEffect(() => {
@@ -52,7 +53,7 @@ function UserComponent({ className, isLoading, userName }: UserComponentProps) {
           data-testid="header-user-name"
           id="user-name"
         >
-          {userName}
+          {userNameCT}
         </span>
       </div>
     </NavLink>

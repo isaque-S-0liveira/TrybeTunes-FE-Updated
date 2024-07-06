@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Forms/Button';
 import { UserType } from '../../types';
 import './EditProfileForm.css';
 import { updateUser } from '../../services/userAPI';
+import UserContext from '../../context/UserContext';
 
 type EditProfileFormProps = {
   user: UserType;
@@ -16,6 +17,7 @@ function EditProfileForm({ user, setIsLoading }: EditProfileFormProps) {
   const [rows, setRows] = useState(3);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const navigate = useNavigate();
+  const { setUserNameCT } = useContext(UserContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -36,6 +38,7 @@ function EditProfileForm({ user, setIsLoading }: EditProfileFormProps) {
       email: userEmail,
       description: userDescription,
       image: user.image });
+    setUserNameCT(userName);
     navigate('/profile');
 
     setIsLoading(false);

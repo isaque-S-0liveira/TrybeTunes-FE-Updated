@@ -7,9 +7,10 @@ type UserProviderProps = {
 };
 function UserProvider({ children }: UserProviderProps) {
   const [imgCT, setImgCT] = useState<string>('');
+  const [userNameCT, setUserNameCT] = useState<string>('');
 
   return (
-    <UserContext.Provider value={ { imgCT, setImgCT } }>
+    <UserContext.Provider value={ { userNameCT, imgCT, setImgCT, setUserNameCT } }>
       { children }
     </UserContext.Provider>
   );
