@@ -17,10 +17,7 @@ function Favorites() {
 
   useEffect(() => {
     fetchFavoriteSongs();
-  }, []);
-
-  useEffect(() => {
-    fetchFavoriteSongs();
+    return () => {};
   }, [favoriteSongs]);
 
   if (!isLoading) {

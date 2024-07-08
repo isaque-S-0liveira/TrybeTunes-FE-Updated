@@ -18,6 +18,7 @@ function Album() {
   const [collection, setCollection] = useState<AlbumType>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [requestError, setRequestError] = useState<string>('');
+
   const fetchMusics = async () => {
     try {
       const albumAndSongs = await getMusics(params.id as string);
@@ -30,9 +31,11 @@ function Album() {
       setIsLoading(false);
     }
   };
+
   const fetchFavoriteSongs = async () => {
     setFavoriteSongs(await getFavoriteSongs());
   };
+
   useEffect(() => {
     fetchFavoriteSongs();
     fetchMusics();
@@ -60,6 +63,7 @@ function Album() {
                   musicPreview={ music.previewUrl }
                   trackId={ music.trackId }
                   favoriteSongs={ favoriteSongs }
+                  // collectionId={ collection?.collectionId }
                 />
               ))}
             </div>

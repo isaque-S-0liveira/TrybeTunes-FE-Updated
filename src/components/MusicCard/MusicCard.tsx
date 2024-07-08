@@ -14,7 +14,7 @@ type MusicCardProps = {
   trackId: number;
   favoriteSongs: SongType[];
   artworkUrl100?: string;
-  collectionId: number;
+  collectionId?: number;
 };
 
 function MusicCard({
@@ -23,18 +23,18 @@ function MusicCard({
   musicPreview,
   trackId,
   favoriteSongs,
-  collectionId,
-  artworkUrl100 = '' }: MusicCardProps) {
+  collectionId = 0,
+  artworkUrl100 = '',
+}: MusicCardProps) {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
   const [loadingFavorites, setLoadingFavorites] = useState<boolean>(true);
 
-  const handleChange = async (e:React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsFavorite(e.target.checked);
     const song = await getMusics(e.target.value) as SongType[];
 
     if (e.target.checked) {
       await addSong(song[0]);
-      setLoadingFavorites(false);
     } else {
       setLoadingFavorites(true);
       await removeSong(song[0]);
@@ -66,10 +66,13 @@ function MusicCard({
           artworkUrl100={ artworkUrl100 }
           display=""
         />
-        <audio data-testid="audio-component" src={ musicPreview } controls>
+        <audio
+          data-testid="audio-component"
+          src={ musicPreview }
+          controls
+        >
           <track kind="captions" />
           O seu navegador não suporta o elemento
-          {' '}
           {' '}
           <code>audio</code>
           .
@@ -82,6 +85,7 @@ function MusicCard({
           checked={ isFavorite }
           onChange={ handleChange }
           value={ trackId }
+          disabled={ false }
         />
         <label htmlFor={ trackId.toString() }>
           {loadingFavorites ? (
