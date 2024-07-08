@@ -145,21 +145,21 @@
 }
 
 @media screen and (min-width: 768px) {
-    #all-songs-container {
-        border-top: none;
-        min-height: 0px;
-        border-bottom: none;
+    #album-main-container {
+        height: calc(100vh - 155px);
+        overflow:hidden;
         
     }
     #all-songs-container {
         overflow-y: auto;
-        max-height: 420px;
+        height: 600px;
         min-height: 370px;
         margin-bottom: 10px;
         margin-top: 20px;
         border-top: 1px solid #ffffff56;
         border-bottom: 1px solid #ffffff56;
         padding-top: 20px;
+        overflow: scroll;
     }
 }
 
@@ -171,6 +171,7 @@
     }
     #all-songs-container {
         overflow: visible;
+        height: auto !important;
     }
 }
 
