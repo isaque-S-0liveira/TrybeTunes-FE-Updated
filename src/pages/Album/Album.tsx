@@ -63,7 +63,6 @@ function Album() {
                   musicPreview={ music.previewUrl }
                   trackId={ music.trackId }
                   favoriteSongs={ favoriteSongs }
-                  // collectionId={ collection?.collectionId }
                 />
               ))}
             </div>
