@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { UserType } from '../../types';
 import { getUser } from '../../services/userAPI';
 import './Profile.css';
@@ -24,14 +24,13 @@ function Profile() {
     };
     fetchUser();
   }, []);
+
   if (!isLoading) {
     return (
       <>
-        <HeaderViewer
-          viewer={
-            <UserIconImg />
-        }
-        />
+
+        <HeaderViewer viewer={ <UserIconImg /> } />
+
         <main id="main-profile-container" className="row p-0 m-0">
           <div className="col-12 col-md-4 col-lg-5 col-xxl-4">
             <div className="d-lg-none">

@@ -8,16 +8,20 @@ type UserIconImgProps = {
   isEdit?: boolean;
 };
 
-function UserIconImg(isEdit: UserIconImgProps) {
+function UserIconImg({ isEdit }: UserIconImgProps) {
   const { imgCT, setImgCT } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchUser = async () => {
     setIsLoading(true);
-    const user = await getUser();
-    setImgCT(user.image);
-
-    setIsLoading(false);
+    try {
+      const user = await getUser();
+      setImgCT(user.image);
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const toBase64 = (file: File): Promise<string> => new Promise((resolve, reject) => {
@@ -31,38 +35,42 @@ function UserIconImg(isEdit: UserIconImgProps) {
     const file = e.target?.files?.[0];
     if (file) {
       setIsLoading(true);
-      const base64 = await toBase64(file);
-      const user = await getUser();
-      await updateUser({
-        ...user,
-        image: base64,
-      });
+      try {
+        const base64 = await toBase64(file);
+        const user = await getUser();
+        await updateUser({ ...user, image: base64 });
+        await fetchUser();
+      } catch (error) {
+        console.error('Error updating user image:', error);
+      }
     }
-    await fetchUser();
   };
 
   useEffect(() => {
     fetchUser();
   }, []);
 
-  useEffect(() => { fetchUser(); }, [isEdit]);
+  useEffect(() => {
+    if (isEdit) fetchUser();
+  }, [isEdit]);
 
   return (
     <div id="user-icon-img-main">
       <div id="user-icon-img-container">
-        {isLoading ? <div id="loading-img"><SpinnerLoading /></div> : (
+        {isLoading ? (
+          <div id="loading-img"><SpinnerLoading /></div>
+        ) : (
           <>
             <label id="label-user-icon-img" htmlFor="user-img-input">
               <img
                 id="user-img"
                 src={ imgCT }
                 alt="User-img"
-                className={ imgCT !== '' && imgCT !== undefined ? 'd-inline' : 'd-none' }
+                className={ imgCT ? 'd-inline' : 'd-none' }
               />
-
               <div
                 id="icon-container"
-                className={ imgCT === '' || imgCT === undefined ? 'd-inline' : 'd-none' }
+                className={ !imgCT ? 'd-inline' : 'd-none' }
               >
                 <i id="user-i" className="bi bi-person-circle" />
               </div>

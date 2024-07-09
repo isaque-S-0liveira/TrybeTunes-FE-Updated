@@ -32,10 +32,6 @@
     color: #999;
 }
 
-#user-info-main-container {
-    margin: 20px; 
-  }
-
  @media screen and (min-width: 992px) {
     #user-info-main-container {
         margin: 0; 
