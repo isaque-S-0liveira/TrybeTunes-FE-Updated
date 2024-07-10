@@ -6,16 +6,23 @@
     text-decoration: none;
     border: 1px solid #fff;
     color: #fff;
+    font-weight:700;
+
+}
+
+#header-component .nav-link:hover {
+    border-color: rgb(196, 103, 239);
+    transition: .5s;
 }
 
 
 
 #header-component .nav-link-disabled {
-    background-color: rgb(119, 0, 255);
+    background-color: rgb(64, 0, 147);
 }
 
 #header-component .nav-link-active {
-    background-color: rgba(119, 0, 255, 0.246);
+    background-color: rgba(12, 0, 29, 0.344);
     transition: .5s;
 }
 
