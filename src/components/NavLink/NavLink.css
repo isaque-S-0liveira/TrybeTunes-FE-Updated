@@ -11,7 +11,7 @@
 }
 
 #header-component .nav-link:hover {
-    border-color: rgb(196, 103, 239);
+    border-color:  rgb(123, 0, 255);
     transition: .5s;
 }
 
