@@ -27,9 +27,9 @@ function Login() {
   };
 
   const handleClick = async () => {
+    setIsLoading(true);
     const user = await getUser();
     if (userName.length >= 3) {
-      setIsLoading(true);
       await createUser({ ...user, name: userName });
       setIsLoading(false);
       navigate('/search');
@@ -58,6 +58,7 @@ function Login() {
           <form id="form-login" className="col-12 mt-5 ">
             <div className="pb-5">
               <Input
+                type="text"
                 testId="login-name-input"
                 id="username"
                 value={ userName }

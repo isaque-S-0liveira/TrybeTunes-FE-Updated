@@ -2,7 +2,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '/logo.png';
 import { getUser } from '../../services/userAPI';
 import NavLinkComponent from '../NavLink/NavLink';
@@ -10,11 +10,15 @@ import './Header.css';
 import UserComponent from './User';
 
 function Header() {
+  const navigate = useNavigate();
   const [userName, setUserName] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const request = async () => {
       const user = await getUser();
+      if (user.name.length < 3 || user.name === undefined) {
+        navigate('/');
+      }
       if (user) {
         setUserName(user.name);
       }

@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
 import { getUser } from '../../services/userAPI';
 
@@ -10,14 +10,7 @@ type UserComponentProps = {
 };
 
 function UserComponent({ className, isLoading, userName }: UserComponentProps) {
-  const navigate = useNavigate();
   const { userNameCT, imgCT, setImgCT, setUserNameCT } = useContext(UserContext);
-
-  const redirectToLogin = () => {
-    if (userName === '' && userName === undefined) {
-      navigate('/');
-    }
-  };
 
   const fetchUser = async () => {
     const user = await getUser();
@@ -27,7 +20,6 @@ function UserComponent({ className, isLoading, userName }: UserComponentProps) {
 
   useEffect(() => {
     fetchUser();
-    redirectToLogin();
   }, []);
 
   useEffect(() => {
