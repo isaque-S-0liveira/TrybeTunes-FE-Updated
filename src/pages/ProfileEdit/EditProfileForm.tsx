@@ -17,7 +17,7 @@ function EditProfileForm({ user, setIsLoading }: EditProfileFormProps) {
   const [rows, setRows] = useState(3);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const navigate = useNavigate();
-  const { setUserNameCT } = useContext(UserContext);
+  const { setUserNameCT, imgCT } = useContext(UserContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -37,7 +37,7 @@ function EditProfileForm({ user, setIsLoading }: EditProfileFormProps) {
       name: userName,
       email: userEmail,
       description: userDescription,
-      image: user.image });
+      image: imgCT });
     setUserNameCT(userName);
     navigate('/profile');
 
