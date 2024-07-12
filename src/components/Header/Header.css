@@ -91,7 +91,8 @@
 }
 
 #header-component #user-img {
-    width: 2.5em;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 10px;
     margin-left: 5px;
@@ -122,6 +123,11 @@
     }
     #header-component #user-icon {
         font-size: 2em;
+    }
+
+    #header-component #user-img {
+        width: 50px;
+        height: 50px;
     }
 }
 
