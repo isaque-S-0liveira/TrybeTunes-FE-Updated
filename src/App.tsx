@@ -10,8 +10,8 @@ import ProfileEdit from './pages/ProfileEdit/ProfileEdit';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={ <Login /> } />
-      <Route path="/" element={ <Layout /> }>
+      <Route path="/TrybeTunes-FE-Updated" element={ <Login /> } />
+      <Route path="/TrybeTunes-FE-Updated" element={ <Layout /> }>
         <Route index path="/search" element={ <Search /> } />
         <Route path="/album/:id" element={ <Album /> } />
         <Route path="/favorites" element={ <Favorites /> } />
