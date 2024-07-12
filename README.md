@@ -41,3 +41,24 @@ O TrybeTunes é uma aplicação que permite aos usuários reproduzir músicas de
 
 ---
 
+
+## Técnologias usadas
+
+Front-end:
+- [React](https://reactjs.org/)
+- [React Router](https://reactrouter.com/en/main)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Context API](https://reactjs.org/docs/context.html)
+- [Bootstrap 5](https://getbootstrap.com/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- CSS3
+
+## Entre em contato:
+<a href="mailto:zazac3179@gmail.com" target="_blank">
+  <img align="center" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="E-mail" height="40" width="auto" />
+</a>
+<a href="https://www.linkedin.com/in/isaque-s-oliveira/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="isaque oliveira" height="30" width="40" /></a>
+
+
+	
+
