@@ -27,7 +27,7 @@ O foco principal deste projeto é, com base nos ensinamentos React da Trybe, faz
 
 ---
 
-O TrybeTunes é uma aplicação que permite aos usuários reproduzir músicas de diversos artistas e bandas, criar uma lista de músicas favoritas e editar seu perfil. As principais funcionalidades do TrybeTunes incluem:
+O TrybeTunes é uma aplicação responsiva que permite aos usuários reproduzir músicas de diversos artistas e bandas, criar uma lista de músicas favoritas e editar seu perfil. As principais funcionalidades do TrybeTunes incluem:
 
 - **Login de Usuário**: Permite que os usuários façam login em suas contas.
 - **Pesquisa de Artistas/Bandas**: Funcionalidade de busca para encontrar bandas ou artistas.
