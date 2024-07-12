@@ -23,6 +23,7 @@ function SearchForm({
       <div id="input-search-container" className="position-relative">
         <Input
           id="search-artist-input"
+          type="text"
           testId="search-artist-input"
           placeholder="Nome do artista"
           onChange={ handleSearch }
