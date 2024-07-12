@@ -18,58 +18,26 @@
 </details>
 
 # Contexto
-Este projeto trata-se de um jogo no estilo Super Trunfo! Ao utilizar essa aplicação uma pessoa usuária é capaz de:
+O foco principal deste projeto é, com base nos ensinamentos React da Trybe, fazer requisições e consumir dados de uma API, compreender o ciclo de vida dos componentes, mapear caminhos de URL com o componente Route e utilizar o Routes do React Router Dom.
 
-- Criar um baralho com o tema livre;
+<details>
+  <summary>O que é a Trybe?🤔</summary>
+  A Trybe é uma escola de desenvolvimento web genuinamente comprometida com o sucesso profissional de seus estudantes. Com o Modelo de Sucesso Compartilhado (MSC) oferecido pela Trybe Fintech, uma instituição financeira autorizada pelo Banco Central do Brasil, os alunos têm a opção de pagar apenas quando estiverem trabalhando.
+</details>
 
-- Adicionar e remover uma carta do baralho;
+---
 
-- Visualizar todas as cartas que foram adicionadas ao baralho;
+O TrybeTunes é uma aplicação que permite aos usuários reproduzir músicas de diversos artistas e bandas, criar uma lista de músicas favoritas e editar seu perfil. As principais funcionalidades do TrybeTunes incluem:
 
-- Realizar filtros para encontrar cartas específicas;
-  
+- **Login de Usuário**: Permite que os usuários façam login em suas contas.
+- **Pesquisa de Artistas/Bandas**: Funcionalidade de busca para encontrar bandas ou artistas.
+- **Listagem de Álbuns**: Exibe os álbuns disponíveis de um artista ou banda pesquisada.
+- **Visualização de Músicas**: Mostra as músicas de um álbum selecionado.
+- **Reprodução de Músicas**: Permite a reprodução de prévias das músicas do álbum.
+- **Gerenciamento de Favoritos**: Opção para favoritar e desfavoritar músicas.
+- **Lista de Favoritos**: Visualização da lista de músicas favoritadas.
+- **Perfil do Usuário**: Exibe o perfil do usuário logado.
+- **Edição de Perfil**: Permite a edição do perfil do usuário logado.
 
-## Habilidades Demonstradas
-
-Neste projeto, foram utilizadas as seguintes habilidades:
-
-- Leitura do estado de um componente e utilização para alterar a exibição no navegador.
-- Inicialização de um componente, atribuindo a ele um estado pré-definido.
-- Atualização do estado de um componente.
-- Captura de eventos utilizando a sintaxe do React.
-- Criação de formulários utilizando a sintaxe TSX com as tags: input, textarea, select, form, checkbox.
-- Transmissão de informações de componentes filhos para componentes pais via callbacks.
-
-
-## Técnologias usadas
-
-Front-end:
-- [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Context API](https://reactjs.org/docs/context.html)
-- [Bootstrap 5](https://getbootstrap.com/)
-- CSS3
-
-## Executando aplicação
-
-* Clone o repositório:
-  ```
-    git clone git@github.com:isaque-S-0liveira/Tryunfo-FE-Updated.git
-  ```
-* Entre na pasta do repositório que você acabou de clonar:
-
-  ```
-    cd Tryunfo-FE-Updated/
-  ```
-* Instale as dependências:
-  ```
-    npm install
-  ```
-
-* Inicialize a aplicação com o comando: 
-  ```
-    npm run dev
-  ```
-
-
+---
 
