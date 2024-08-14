@@ -10,72 +10,97 @@ import SLS from '../../components/SpecificLoadingScreen/SpecificLoadingScreen';
 import AlbumHeaderSMMD from './AlbumHeaderSMMD';
 import AlbumCover from './AlbumCover';
 import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
+import AlbumError from './AlbumError';
 
 function Album() {
   const params = useParams();
   const [musics, setMusics] = useState<SongType[]>([]);
   const [favoriteSongs, setFavoriteSongs] = useState<SongType[]>([]);
-  const [collection, setCollection] = useState<AlbumType>();
+  const [collection, setCollection] = useState<AlbumType | undefined>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [requestError, setRequestError] = useState<string>('');
 
   const fetchMusics = async () => {
     try {
+      setIsLoading(true);
       const albumAndSongs = await getMusics(params.id as string);
+      if (albumAndSongs.length === 0) {
+        throw new Error('Nenhuma música encontrada');
+      }
+
       const album = albumAndSongs[0];
       const remainingMusics = albumAndSongs.slice(1);
+
+      if (!album || !album.collectionName) {
+        throw new Error('Dados do álbum estão incompletos');
+      }
+
       setCollection(album as AlbumType);
       setMusics(remainingMusics as SongType[]);
     } catch (error) {
-      setRequestError('Erro ao buscar as músicas');
+      setRequestError((error.message as string) || 'Erro ao buscar as músicas');
+    } finally {
       setIsLoading(false);
     }
   };
 
   const fetchFavoriteSongs = async () => {
-    setFavoriteSongs(await getFavoriteSongs());
+    try {
+      const favorites = await getFavoriteSongs();
+      setFavoriteSongs(favorites);
+    } catch (error) {
+      console.error('Erro ao buscar as músicas favoritas:', error);
+    }
   };
 
   useEffect(() => {
     fetchFavoriteSongs();
     fetchMusics();
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
   }, []);
 
-  if (!isLoading) {
+  if (isLoading) {
     return (
-      <main id="album-page">
-        <HeaderViewer viewer={ <AlbumCover album={ collection as AlbumType } /> } />
-        <article id="album-main-container" className="container-fluid primary-bg-color">
-          <div className="row">
-            <AlbumHeaderSMMD
-              collection={ collection as AlbumType }
-              requestError={ requestError }
-            />
-            <div id="all-songs-container" className="col-12 col-md-7 col-lg-8 p-0">
-              {musics.map((music) => (
-                <MusicCard
-                  key={ music.trackId }
-                  idCss="music-card-album"
-                  musicName={ music.trackName }
-                  musicPreview={ music.previewUrl }
-                  trackId={ music.trackId }
-                  favoriteSongs={ favoriteSongs }
-                />
-              ))}
-            </div>
-          </div>
-        </article>
-      </main>
+      <>
+        <HeaderViewer viewer={ <div id="loading-headerViewer">Carregando...</div> } />
+        <SLS />
+      </>
     );
   }
+
+  if (requestError) {
+    return (
+      <AlbumError requestError={ requestError } />
+    );
+  }
+
+  if (!collection) {
+    return (
+      <AlbumError />
+
+    );
+  }
+
   return (
-    <>
-      <HeaderViewer viewer={ <div id="loading-headerViewer">Carregando...</div> } />
-      <SLS />
-    </>
+    <main id="album-page">
+      <HeaderViewer viewer={ <AlbumCover album={ collection } /> } />
+      <article id="album-main-container" className="container-fluid primary-bg-color">
+        <div className="row">
+          <AlbumHeaderSMMD collection={ collection } requestError={ requestError } />
+          <div id="all-songs-container" className="col-12 col-md-7 col-lg-8 p-0">
+            {musics.map((music) => (
+              <MusicCard
+                key={ music.trackId }
+                idCss="music-card-album"
+                musicName={ music.trackName }
+                musicPreview={ music.previewUrl }
+                trackId={ music.trackId }
+                favoriteSongs={ favoriteSongs }
+              />
+            ))}
+          </div>
+        </div>
+      </article>
+    </main>
   );
 }
 
