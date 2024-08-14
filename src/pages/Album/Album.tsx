@@ -37,10 +37,15 @@ function Album() {
 
       setCollection(album as AlbumType);
       setMusics(remainingMusics as SongType[]);
-    } catch (error) {
-      setRequestError((error.message as string) || 'Erro ao buscar as músicas');
-    } finally {
       setIsLoading(false);
+    } catch (error) {
+      if (error instanceof Error) {
+        setRequestError(error.message);
+        setIsLoading(false);
+      } else {
+        setRequestError('Erro ao buscar as músicas');
+        setIsLoading(false);
+      }
     }
   };
 
