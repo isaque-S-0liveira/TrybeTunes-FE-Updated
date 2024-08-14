@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import HeaderViewer from '../../components/HeaderViewer/HeaderViewer';
 
 function AlbumError({ requestError = undefined }: { requestError?: string }) {
