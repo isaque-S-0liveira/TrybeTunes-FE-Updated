@@ -40,6 +40,7 @@ function MusicCard({
       await removeSong(song[0]);
       setLoadingFavorites(false);
     }
+    window.dispatchEvent(new Event('favorites-updated'));
   };
 
   const updateFavorite = async () => {

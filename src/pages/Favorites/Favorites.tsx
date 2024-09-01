@@ -17,7 +17,10 @@ function Favorites() {
 
   useEffect(() => {
     fetchFavoriteSongs();
-    return () => {};
+    window.addEventListener('favorites-updated', fetchFavoriteSongs);
+    return () => {
+      window.removeEventListener('favorites-updated', fetchFavoriteSongs);
+    };
   }, [favoriteSongs]);
 
   if (!isLoading) {
