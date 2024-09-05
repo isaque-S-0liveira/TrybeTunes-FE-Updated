@@ -11,16 +11,17 @@ function Favorites() {
   const [favoriteSongs, setFavoriteSongs] = useState<SongType[]>([]);
 
   const fetchFavoriteSongs = async () => {
-    setFavoriteSongs(await getFavoriteSongs());
+    const favorites = await getFavoriteSongs();
+    setFavoriteSongs(favorites);
     setIsLoading(false);
   };
 
   useEffect(() => {
     fetchFavoriteSongs();
-    window.addEventListener('favorites-updated', fetchFavoriteSongs);
-    return () => {
-      window.removeEventListener('favorites-updated', fetchFavoriteSongs);
-    };
+  }, []);
+
+  useEffect(() => {
+    fetchFavoriteSongs();
   }, [favoriteSongs]);
 
   if (!isLoading) {

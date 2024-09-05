@@ -30,17 +30,16 @@ function MusicCard({
   const [loadingFavorites, setLoadingFavorites] = useState<boolean>(true);
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLoadingFavorites(true);
     setIsFavorite(e.target.checked);
     const song = await getMusics(e.target.value) as SongType[];
 
     if (e.target.checked) {
       await addSong(song[0]);
     } else {
-      setLoadingFavorites(true);
       await removeSong(song[0]);
-      setLoadingFavorites(false);
     }
-    window.dispatchEvent(new Event('favorites-updated'));
+    setLoadingFavorites(false);
   };
 
   const updateFavorite = async () => {
@@ -86,7 +85,7 @@ function MusicCard({
           checked={ isFavorite }
           onChange={ handleChange }
           value={ trackId }
-          disabled={ false }
+          disabled={ loadingFavorites }
         />
         <label htmlFor={ trackId.toString() }>
           {loadingFavorites ? (
