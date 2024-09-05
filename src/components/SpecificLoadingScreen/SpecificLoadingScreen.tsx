@@ -4,7 +4,7 @@ function SpecificLoadingScreen() {
   return (
     <>
       <div className="d-lg-none">
-        <Loading considerHeaderHeight position="absolute" consideredHight="156px" />
+        <Loading considerHeaderHeight position="absolute" consideredHight="137px" />
       </div>
       <div className="d-none d-lg-flex">
         <Loading considerHeaderHeight consideredHight="225px" />
