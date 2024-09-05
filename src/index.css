@@ -1,21 +1,11 @@
-
-body {
+html, body,  #root{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
     background-image: url('./assets/outrun-neon-dark-background-purple-3440x1440-4523.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: center center;
-    height: 100%;
-}
-
-html {
-    height: 100%;
-}
-
-@media screen and (min-width: 992px) {
-    body, html {
-        overflow: hidden;
-    }
 }
 
 /* Estilos quando o campo é autocompletado */

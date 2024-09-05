@@ -10,17 +10,17 @@ function AlbumError({ requestError = undefined }: { requestError?: string }) {
       <HeaderViewer
         viewer={
           <div className="error-message">
-            {requestError && <p>{requestError}</p>}
+            {requestError && <p>Álbum indisponível no momento</p>}
             {!requestError && <p>{errorMessage}</p>}
-            <p>Por favor, tente novamente.</p>
+            <p>Por favor, tente novamente mais tarde.</p>
             <button onClick={ tryAgain }>Tentar novamente</button>
           </div>
   }
       />
       <div className="error-message d-lg-none">
-        {requestError && <p>{requestError}</p>}
+        {requestError && <p>Álbum indisponível no momento</p>}
         {!requestError && <p>{errorMessage}</p>}
-        <p>Por favor, tente novamente.</p>
+        <p>Por favor, tente novamente mais tarde.</p>
         <button onClick={ tryAgain }>Tentar novamente</button>
       </div>
     </>
