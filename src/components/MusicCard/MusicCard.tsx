@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './MusicCard.css';
+import { useLocation } from 'react-router-dom';
 import { addSong, removeSong } from '../../services/favoriteSongsAPI';
 import { SongType } from '../../types';
 import AlbumImg from './AlbumImg';
@@ -12,7 +13,7 @@ type MusicCardProps = {
   musicPreview: string;
   trackId: number;
   favoriteSongs: SongType[];
-  artworkUrl100?: string;
+  artworkUrl100: string;
   collectionId?: number;
 };
 
@@ -23,8 +24,9 @@ function MusicCard({
   trackId,
   favoriteSongs,
   collectionId = 0,
-  artworkUrl100 = '',
+  artworkUrl100,
 }: MusicCardProps) {
+  const location = useLocation();
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
   const [loadingFavorites, setLoadingFavorites] = useState<boolean>(true);
 
@@ -69,11 +71,14 @@ function MusicCard({
         <span>{musicName}</span>
       </div>
       <div id="audio-icon-container">
-        <AlbumImg
-          collectionId={ collectionId }
-          artworkUrl100={ artworkUrl100 }
-          display=""
-        />
+        {location.pathname === '/favorites' && (
+          <AlbumImg
+            collectionId={ collectionId }
+            artworkUrl100={ artworkUrl100 }
+            display=""
+          />
+        )}
+
         <audio data-testid="audio-component" src={ musicPreview } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
