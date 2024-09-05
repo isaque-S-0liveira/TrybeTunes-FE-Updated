@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './MusicCard.css';
 import { addSong, removeSong } from '../../services/favoriteSongsAPI';
-import getMusics from '../../services/musicsAPI';
 import { SongType } from '../../types';
 import AlbumImg from './AlbumImg';
 import SpinnerLoading from '../Loading/SpinnerLoading';
@@ -31,18 +30,27 @@ function MusicCard({
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoadingFavorites(true);
-    setIsFavorite(e.target.checked);
-    const song = await getMusics(e.target.value) as SongType[];
+    const { checked } = e.target;
+    setIsFavorite(checked);
 
-    if (e.target.checked) {
-      await addSong(song[0]);
+    const song = favoriteSongs.find((s) => s.trackId === trackId) || {
+      trackId,
+      trackName: musicName,
+      previewUrl: musicPreview,
+      collectionId,
+      artworkUrl100,
+    };
+
+    if (checked) {
+      await addSong(song);
     } else {
-      await removeSong(song[0]);
+      await removeSong(song);
     }
+
     setLoadingFavorites(false);
   };
 
-  const updateFavorite = async () => {
+  const updateFavorite = () => {
     setIsFavorite(favoriteSongs.some((song) => song.trackId === trackId));
   };
 
@@ -66,11 +74,7 @@ function MusicCard({
           artworkUrl100={ artworkUrl100 }
           display=""
         />
-        <audio
-          data-testid="audio-component"
-          src={ musicPreview }
-          controls
-        >
+        <audio data-testid="audio-component" src={ musicPreview } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
           {' '}
