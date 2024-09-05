@@ -14,7 +14,7 @@ type MusicCardProps = {
   trackId: number;
   favoriteSongs: SongType[];
   artworkUrl100: string;
-  collectionId?: number;
+  collectionId: number;
 };
 
 function MusicCard({
@@ -23,7 +23,7 @@ function MusicCard({
   musicPreview,
   trackId,
   favoriteSongs,
-  collectionId = 0,
+  collectionId,
   artworkUrl100,
 }: MusicCardProps) {
   const location = useLocation();

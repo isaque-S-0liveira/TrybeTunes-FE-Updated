@@ -100,6 +100,7 @@ function Album() {
                 musicPreview={ music.previewUrl }
                 trackId={ music.trackId }
                 favoriteSongs={ favoriteSongs }
+                collectionId={ music.collectionId }
                 artworkUrl100={ collection.artworkUrl100 }
               />
             ))}
